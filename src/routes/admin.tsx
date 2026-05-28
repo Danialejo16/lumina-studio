@@ -67,8 +67,9 @@ function LoginForm() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErr(""); setLoading(true);
-    const fn = mode === "login" ? supabase.auth.signInWithPassword : supabase.auth.signUp;
-    const { error } = await fn({ email, password: pwd, options: { emailRedirectTo: window.location.origin + "/admin" } } as any);
+    const { error } = mode === "login"
+      ? await supabase.auth.signInWithPassword({ email, password: pwd })
+      : await supabase.auth.signUp({ email, password: pwd, options: { emailRedirectTo: window.location.origin + "/admin" } });
     setLoading(false);
     if (error) setErr(error.message);
   };
