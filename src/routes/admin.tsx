@@ -67,9 +67,10 @@ function LoginForm() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErr(""); setLoading(true);
+    const redirectBase = `${window.location.origin}${window.location.pathname}`;
     const { error } = mode === "login"
       ? await supabase.auth.signInWithPassword({ email, password: pwd })
-      : await supabase.auth.signUp({ email, password: pwd, options: { emailRedirectTo: window.location.origin + "/admin" } });
+      : await supabase.auth.signUp({ email, password: pwd, options: { emailRedirectTo: `${redirectBase}#/admin` } });
     setLoading(false);
     if (error) setErr(error.message);
   };

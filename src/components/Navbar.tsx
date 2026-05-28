@@ -27,7 +27,7 @@ export function Navbar() {
             <img
               src={brand.logoUrl}
               alt={brand?.name ?? "Logo"}
-              className="h-9 w-9 rounded-full object-cover ring-1 ring-glass-border transition group-hover:ring-spirit"
+              className="h-10 max-w-28 object-contain ring-1 ring-glass-border transition group-hover:ring-spirit"
             />
           )}
           <span className="font-display text-lg tracking-tight">{brand?.name ?? "Dani"}</span>
