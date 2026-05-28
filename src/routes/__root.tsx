@@ -39,7 +39,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">Inténtalo de nuevo o vuelve al inicio.</p>
         <div className="mt-6 flex justify-center gap-3">
           <button onClick={() => { router.invalidate(); reset(); }} className="rounded-xl bg-primary px-4 py-2 text-sm text-primary-foreground">Reintentar</button>
-          <a href="/" className="rounded-xl border border-glass-border px-4 py-2 text-sm">Inicio</a>
+          <Link to="/" className="rounded-xl border border-glass-border px-4 py-2 text-sm">Inicio</Link>
         </div>
       </div>
     </div>
